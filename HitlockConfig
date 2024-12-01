@@ -1,3 +1,8 @@
+local FAIL_PROBABILITY = 0  
+local RANDOM_OFFSET_RANGE = 0  
+local HIT_FAIL_PROBABILITY = 0  
+local MAX_SWORD_DISTANCE = 50
+
 local plrs = game:GetService'Players'
 local plr = plrs.LocalPlayer
 local mouse = plr:GetMouse()
@@ -279,6 +284,8 @@ elseif key == 'q' and tar and plr.Character then
         end
     end
 end)
+
+
 
 
 --hitlock config
