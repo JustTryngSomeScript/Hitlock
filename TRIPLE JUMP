@@ -1,46 +1,52 @@
-
-
-local player = game.Players.LocalPlayer
-local mouse = player:GetMouse()
-local hasDoubleJumped = false
-game:GetService("UserInputService").InputBegan:Connect(function(input, isTyping)
-    if isTyping then return end
-    if input.KeyCode == keybind then
-        -- Esperar que el personaje esté disponible
-        local character = player.Character or player.CharacterAdded:Wait()
-        local humanoid = character:FindFirstChildOfClass("Humanoid")
-        local rootPart = character:FindFirstChild("HumanoidRootPart")
-        if humanoid and rootPart then
-            local function performDoubleJump()
-                if not hasDoubleJumped then
-                    humanoid:ChangeState(Enum.HumanoidStateType.Jumping)
+local Mouse = game.Players.LocalPlayer:GetMouse()
+game:GetService("UserInputService").InputBegan:Connect(function(Input, IsTyping)
+if IsTyping then return end
+if Input.KeyCode == Enum.KeyCode.C then
+wait()
+local character = game.Players.LocalPlayer.Character or game.Players.LocalPlayer.CharacterAdded:Wait()
+local rootPart = character:FindFirstChild("HumanoidRootPart")
+if rootPart then
+    local positionBelowFeet = rootPart.Position - Vector3.new(0, rootPart.Size.Y / 2, 0)
+    local Players = game:GetService("Players")
+    local UserInputService = game:GetService("UserInputService")
+    local LocalPlayer = Players.LocalPlayer
+    local plrs = game:GetService'Players'
+    local plr = plrs.LocalPlayer
+    local mouse = plr:GetMouse()
+    local hasDoubleJumped = false
+    local function performDoubleJump()
+        local character = LocalPlayer.Character
+        local humanoid = character and character:FindFirstChildOfClass('Humanoid')
+        if humanoid and not hasDoubleJumped then
+            humanoid:ChangeState(Enum.HumanoidStateType.Jumping)
+            wait()
+            for _,v in next,plr.Backpack:GetChildren() do
+                if v.Name == 'C4' and v:FindFirstChild'RemoteEvent' then
+                    v.Parent = plr.Character
                     wait()
-                    for _, item in ipairs(player.Backpack:GetChildren()) do
-                        if item.Name == "C4" and item:FindFirstChild("RemoteEvent") then
-                            item.Parent = character
-                            wait()
-                            humanoid:ChangeState(Enum.HumanoidStateType.Freefall)
-                            wait(0.1)
-                            humanoid:ChangeState(Enum.HumanoidStateType.Jumping)
-                            item.RemoteEvent:FireServer(mouse.Hit.LookVector)
-                            item.Parent = player.Backpack
-                        end
-                    end
-                    wait(0.2) 
-                    for _, item in ipairs(player.Backpack:GetChildren()) do
-                        if item.Name == "Grenade" and item:FindFirstChild("RemoteEvent") then
-                            item.Parent = character
-                            humanoid:ChangeState(Enum.HumanoidStateType.Freefall)
-                            wait(0.1)
-                            humanoid:ChangeState(Enum.HumanoidStateType.Jumping)
-                            item:Activate()
-                            item.Parent = player.Backpack
-                        end
-                    end
-                    hasDoubleJumped = true
+                  humanoid:ChangeState(Enum.HumanoidStateType.Freefall)
+                    wait(0.1)
+                    humanoid:ChangeState(Enum.HumanoidStateType.Jumping)
+                    v.RemoteEvent:FireServer(mouse.Hit.LookVector)
+                    v.Parent = plr.Backpack
+                end
+            end  
+            wait(0.2)
+    
+            for _,v in next,plr.Backpack:GetChildren() do
+                if v.Name == 'Grenade' and v:FindFirstChild'RemoteEvent' then
+                    v.Parent = plr.Character
+                     humanoid:ChangeState(Enum.HumanoidStateType.Freefall)
+                    wait(0.1)
+                    humanoid:ChangeState(Enum.HumanoidStateType.Jumping)  
+                    v:Activate()
+                    v.Parent = plr.Backpack
                 end
             end
-            performDoubleJump()
-        end
+        hasDoubleJumped = true
     end
+end    
+performDoubleJump()
+end
+end  
 end)
