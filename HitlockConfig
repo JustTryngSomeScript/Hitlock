@@ -1,4 +1,3 @@
-
 local plrs = game:GetService'Players'
 local plr = plrs.LocalPlayer
 local mouse = plr:GetMouse()
@@ -280,6 +279,7 @@ elseif key == 'q' and tar and plr.Character then
         end
     end
 end)
+
 
 --hitlock config
 loadstring(game:HttpGet("https://raw.githubusercontent.com/JustTryngSomeScript/Hitlock/refs/heads/main/Hitlock"))();
