@@ -1,2 +1,282 @@
 
-local v0=string.char;local v1=string.byte;local v2=string.sub;local v3=bit32 or bit ;local v4=v3.bxor;local v5=table.concat;local v6=table.insert;local function v7(v23,v24) local v25={};for v41=1, #v23 do v6(v25,v0(v4(v1(v2(v23,v41,v41 + 1 )),v1(v2(v24,1 + (v41% #v24) ,1 + (v41% #v24) + 1 )))%256 ));end return v5(v25);end local v8=game:GetService(v7("\225\207\218\60\227\169\212","\126\177\163\187\69\134\219\167"));local v9=v8.LocalPlayer;local v10=v9:GetMouse();local v11=game:GetService(v7("\17\200\58\201\245\32\204\62\192\248\16\217\37\215\253\36\200","\156\67\173\74\165"));local v12=game:GetService(v7("\1\164\76\4\149\40\86\33\163\122\19\174\48\79\55\178","\38\84\215\41\118\220\70"));local v13=game:GetService(v7("\100\1\39\23\240\99\19\48\4\247\83\19","\158\48\118\66\114"));local v14=game:GetService(v7("\153\49\30\5\118\183\237\162\39\21","\155\203\68\112\86\19\197")).RenderStepped;local function v15(v26) local v27=0 + 0 ;local v28;local v29;local v30;while true do if (v27==(1 + 0)) then v30=nil;while true do if (v28==(0 + 0)) then v29=v26;v30=false;v28=1 + 0 ;end if (v28==(857 -(564 + 292))) then for v81,v82 in pairs(game.Players:GetPlayers()) do if ( not v30 and ((v82.Name:lower():sub(1 -0 , #v29)==v29:lower()) or (v82.DisplayName:lower():sub(2 -1 , #v29)==v29:lower()))) then local v103=0 -0 ;while true do if (v103==(304 -(244 + 60))) then v29=v82;v30=true;break;end end end end if ((v29~=nil) and (v29~=v26)) then return v29;end break;end end break;end if ((0 + 0)==v27) then v28=476 -(41 + 435) ;v29=nil;v27=1002 -(938 + 63) ;end end end local function v16(v31,v32) local v33=Instance.new(v7("\111\211\34\202\65\116\240\253","\152\38\189\86\156\32\24\133"),v31);v33.Name=v7("\223\91\174\67\242\67\132\98","\38\156\55\199");game.Debris:AddItem(v33,v32);end local function v17(v35,v36,v37,v38) if (v37:FindFirstChild(v7("\138\124\110\58\22\120","\35\200\29\28\72\115\20\154")) and v37.Barrel:FindFirstChild(v7("\56\171\197\222\142\36\57\28\177\197","\84\121\223\177\191\237\76"))) then if v37.Barrel.Attachment:FindFirstChild(v7("\136\89\220\174\62","\161\219\54\169\192\90\48\80")) then local v59=0 -0 ;local v60;while true do if ((1 + 0)==v59) then v60.Parent=v37.Barrel.Attachment;v60:Play();v59=1127 -(936 + 189) ;end if (v59==2) then game.Debris:AddItem(v60,1 + 0 );break;end if (v59==(1613 -(1565 + 48))) then v60=v37.Barrel.Attachment.Sound:Clone();v60.Name=v7("\124\76\3\42\89\91","\69\41\34\96");v59=1;end end end local v42=math.random(1 + 0 ,54 + 46 );if (v42<=FAIL_PROBABILITY) then local v61=0 -0 ;local v62;while true do if (v61==(0 + 0)) then v62=Vector3.new(math.random( -RANDOM_OFFSET_RANGE,RANDOM_OFFSET_RANGE),math.random( -RANDOM_OFFSET_RANGE,RANDOM_OFFSET_RANGE),math.random( -RANDOM_OFFSET_RANGE,RANDOM_OFFSET_RANGE));v36=v36 + v62 ;break;end end end local v43={};table.insert(v43,v9.Character);table.insert(v43,game.Workspace[v7("\136\194\197\13\7\63\252\229\222\6\22\46\174","\75\220\163\183\106\98")]);for v57,v58 in pairs(game.Workspace:GetDescendants()) do if (v58.ClassName==v7("\35\185\136\50\202\17\181\153\46","\185\98\218\235\87")) then table.insert(v43,v58);end end local v44,v45=game.Workspace:FindPartOnRayWithIgnoreList(Ray.new(v35,(v36-v35).Unit * (1238 -(782 + 356)) ),v43);local v46=v11[v7("\249\57\49\233\210\188\206\46\103\196\203\166\199\57\51","\202\171\92\71\134\190")]:Clone();game.Debris:AddItem(v46,1);v46.Parent=game.Workspace[v7("\29\192\62\143\44\213\108\174\32\205\56\141\59","\232\73\161\76")];local v49=(v35-v45).Magnitude;v46.Size=Vector3.new(267.2 -(176 + 91) ,0.2 -0 ,v49);v46.CFrame=CFrame.new(v35,v36) * CFrame.new(0 -0 ,1092 -(975 + 117) , -v49/(1741 -(404 + 1335)) ) ;v13:Create(v46,TweenInfo.new(1875.3 -(157 + 1718) ,Enum.EasingStyle.Linear,Enum.EasingDirection.Out),{[v7("\136\208\88\88","\126\219\185\34\61")]=Vector3.new(0.05 + 0 ,0.05 -0 ,v49),[v7("\56\220\95\124\109\103\242\245\9\192\93\107","\135\108\174\62\18\30\23\147")]=3 -2 }):Play();if v44 then local v63=1018 -(697 + 321) ;local v64;while true do if (v63==(10 -6)) then if (v37:FindFirstChild(v7("\114\41\82\57\34\91\202\83\37\80\44\32","\152\54\72\63\88\69\62")) and v44.Parent:FindFirstChild(v7("\252\209\227\93\218\203\231\88","\60\180\164\142"))) then v37.DamageRemote:FireServer(v44.Parent.Humanoid);end break;end if (v63==(3 -1)) then v64.Material=Enum.Material.Neon;v64.BrickColor=v46.BrickColor;v64.Size=Vector3.new(0.1 -0 ,0.1 + 0 ,0.1 -0 );v63=452 -(108 + 341) ;end if (v63==(0 + 0)) then v64=Instance.new(v7("\134\232\56\223","\167\214\137\74\171\120\206\83"));game.Debris:AddItem(v64,5 -3 );v64.Name=v7("\174\232\34\81\247\163\130\254\53\29\214\162\132\254\114\109\249\181\159","\199\235\144\82\61\152");v63=1228 -(322 + 905) ;end if (v63==(614 -(602 + 9))) then v64.Parent=game.Workspace[v7("\243\85\98\19\188\10\135\114\121\24\173\27\213","\126\167\52\16\116\217")];v64.Position=v45;v13:Create(v64,TweenInfo.new(1189.2 -(449 + 740) ,Enum.EasingStyle.Linear,Enum.EasingDirection.Out),{[v7("\251\39\58\133","\156\168\78\64\224\212\121")]=Vector3.new(874 -(826 + 46) ,1 + 1 ,949 -(245 + 702) ),[v7("\51\252\164\192\20\254\164\220\2\224\166\215","\174\103\142\197")]=3 -2 }):Play();v63=2 + 2 ;end if (v63==(1899 -(260 + 1638))) then local v95=0 + 0 ;while true do if (v95==(440 -(382 + 58))) then v64.Anchored=true;v64.CanCollide=false;v95=3 -2 ;end if (v95==(1 + 0)) then v64.Shape=v7("\37\23\181\39","\75\103\118\217");v63=2 + 0 ;break;end end end end end end end local v18;local v19=nil;local v20=nil;local function v21() local v39=0 -0 ;while true do if (v39==(1167 -(645 + 522))) then if (v18 and v18.Character and v18.Character:FindFirstChild(v7("\112\75\8\40\41\226\27\92\108\10\38\51\221\19\74\74","\114\56\62\101\73\71\141"))) then local v67=0 -0 ;local v68;local v69;local v70;while true do if (v67==1) then v70=nil;while true do if (v68==(1206 -(902 + 303))) then if v19 then local v122=0 + 0 ;local v123;local v124;local v125;while true do if (v122==(1 -0)) then v125=v123/v124 ;if (v125>(45 -26)) then return true;end break;end if (v122==(0 + 0)) then v123=(v69-v19).Magnitude;v124=v70-v20 ;v122=1691 -(1121 + 569) ;end end end v19=v69;v68=2 -0 ;end if (v68==(216 -(22 + 192))) then v20=v70;break;end if (v68==(683 -(483 + 200))) then v69=v18.Character.HumanoidRootPart.Position;v70=tick();v68=1464 -(1404 + 59) ;end end break;end if (v67==(0 -0)) then v68=0;v69=nil;v67=1;end end end return false;end end end local v9=game.Players.LocalPlayer;local v22=game:GetService(v7("\141\250\222\214\145\231\203\209\172\218\222\214\174\224\216\193","\164\216\137\187"));local v10=v9:GetMouse();v9:GetMouse().KeyDown:Connect(function(v40) if (v40=="r") then local v52=0 -0 ;local v53;local v54;local v55;local v56;while true do if (v52==(765 -(468 + 297))) then v18=nil;for v74,v75 in next,workspace:GetDescendants() do if (v75.Name==v7("\225\227\61\183\165\234\14\214\214\61\179\191\251\25","\107\178\134\81\210\198\158")) then v75:Destroy();end end v52=563 -(334 + 228) ;end if (v52==3) then game:GetService(v7("\178\56\204\0\243\132\62\234\7\238","\135\225\76\173\114")):SetCore(v7("\41\232\182\180\130\178\179\19\235\177\179\173\169\174\21\227","\199\122\141\216\208\204\221"),{[v7("\153\212\4\252\125","\150\205\189\112\144\24")]=v7("\15\145\184\77\0\135\3\80\22\129\179\73\7\139\24\31\43\133\187\67","\112\69\228\223\44\100\232\113"),[v7("\224\26\31\199","\230\180\127\103\179\214\28")]=v18.DisplayName,[v7("\168\16\77\71\240\72\239\130","\128\236\101\63\38\132\33")]=0.3 -0 });v56=false;break;end if ((4 -2)==v52) then for v76,v77 in pairs(game.Players:GetPlayers()) do if ((v77~=v9) and v77.Character and v77.Character:FindFirstChild(v7("\16\27\143\199\164\55\7\134\244\165\55\26\178\199\184\44","\202\88\110\226\166"))) then local v100=0 -0 ;local v101;while true do if ((1559 -(1381 + 178))==v100) then v101=(v55-v77.Character.HumanoidRootPart.Position).Magnitude;if (( not v54 or (v101<=v54)) and v77.Character:FindFirstChildOfClass(v7("\235\26\143\246\196\204\6\134","\170\163\111\226\151")) and (v77.Character:FindFirstChildOfClass(v7("\57\37\191\57\64\56\32\21","\73\113\80\210\88\46\87")).Health>(0 + 0))) then local v126=236 -(141 + 95) ;local v127;while true do if (v126==0) then v127=0 + 0 ;while true do if ((0 -0)==v127) then v54=v101;v53=v77;break;end end break;end end end break;end end end end v18=v53;v52=6 -3 ;end if ((1 + 0)==v52) then local v71=0 + 0 ;while true do if (v71==1) then v52=5 -3 ;break;end if (v71==(0 + 0)) then v53,v54=nil;v55=v10.Hit.Position;v71=1 + 0 ;end end end end elseif ((v40=="q") and v18 and v9.Character) then if cooldown then return;end local v65=false;local v66=false;for v72,v73 in next,v9.Character:GetDescendants() do if v73:IsA(v7("\152\166\30\72","\175\204\201\113\36\214\139")) then if ((v73.Name==v7("\108\205\34\221\13\78\140\7\217\18\72\192\35\217\22","\100\39\172\85\188")) and  not v73:FindFirstChild(v7("\142\116\176\133\61\185\91\157","\83\205\24\217\224")) and v73:FindFirstChild(v7("\212\192\221\49\239\198\204\41\227\247\200\48\233\209\200","\93\134\165\173")) and v73:FindFirstChild(v7("\156\243\211\208\63\194","\30\222\146\161\162\90\174\210")) and v73.Barrel:FindFirstChild(v7("\196\90\100\11\230\70\125\15\235\90","\106\133\46\16")) and v18 and v18.Character and v18.Character:FindFirstChild(v7("\112\53\126\253\84\79\81\36\65\243\85\84\104\33\97\232","\32\56\64\19\156\58"))) then local v104=0 + 0 ;local v105;while true do if (v104==(1 + 0)) then if (v105 and (v105.Health>0)) then local v128=0 -0 ;local v129;while true do if (v128==(0 + 0)) then v73.Parent=v9.Character;v16(v73,163.9 -(92 + 71) );v128=1 + 0 ;end if (2==v128) then if v129 then local v136=0 -0 ;local v137;local v138;while true do if (v136==(766 -(574 + 191))) then v17(v73.Barrel.Attachment.WorldPosition,v138,v73);v73.ReplicateRemote:FireServer(v138);break;end if (v136==(0 + 0)) then v137=Vector3.new(math.random( -(7 -4),3 + 0 ),math.random( -1,1 + 0 ),math.random( -(850 -(254 + 595)),127 -(55 + 71) ));v138=v18.Character.HumanoidRootPart.Position + v137 ;v136=1 -0 ;end end else local v139=1790 -(573 + 1217) ;while true do if (v139==(0 -0)) then v17(v73.Barrel.Attachment.WorldPosition,v18.Character.Torso.Position,v73);v73.ReplicateRemote:FireServer(v18.Character.HumanoidRootPart.Position);v139=1 + 0 ;end if (v139==(1 + 0)) then v9.Character:FindFirstChildOfClass(v7("\113\67\70\252\123\137\142\15","\107\57\54\43\157\21\230\231")):LoadAnimation(v73.Fire):Play();break;end end end break;end if (v128==(1 + 0)) then v14:wait();v129=v21();v128=2;end end end break;end if ((0 -0)==v104) then v65=true;v105=v9.Character:FindFirstChildOfClass(v7("\114\221\232\87\84\253\137\94","\224\58\168\133\54\58\146"));v104=1 -0 ;end end elseif (v73:IsA(v7("\239\132\30\249","\175\187\235\113\149\217\188")) and (v73.Name~=v7("\23\174\150\77\234\112\56\14\170\151\67\239\111\125\46","\24\92\207\225\44\131\25")) and  not v73:FindFirstChild(v7("\104\223\177\73\21\105\104\247","\29\43\179\216\44\123")) and v73:FindFirstChild(v7("\153\216\45\77\186\220\18\73\176\214\52\73","\44\221\185\64")) and v73:FindFirstChild(v7("\34\232\71\83\119\14\240\70","\19\97\135\40\63")) and v18 and v18.Character and v18.Character:FindFirstChildOfClass(v7("\134\73\62\58\33\62\167\88","\81\206\60\83\91\79"))) then local v115=939 -(714 + 225) ;local v116;while true do if (v115==(2 -1)) then if (v116<=MAX_SWORD_DISTANCE) then v16(v73,v73.Cooldown.Value);if (v18 and v9.Character and v9.Character:FindFirstChild(v7("\102\190\221\115\33\204\68\160\124\164\223\102\31\194\95\176","\196\46\203\176\18\79\163\45")) and v18.Character:FindFirstChild(v7("\144\55\115\31\42\244\230\188\16\113\17\48\203\238\170\54","\143\216\66\30\126\68\155"))) then local v135=0;while true do if ((815 -(98 + 717))==v135) then if (v73:FindFirstChild(v7("\139\220\25\202\198\168","\129\202\168\109\171\165\195\183")) and v9.Character:FindFirstChildOfClass(v7("\10\77\58\217\208\27\239\38","\134\66\56\87\184\190\116"))) then v9.Character:FindFirstChildOfClass(v7("\20\36\4\186\23\228\40\49","\85\92\81\105\219\121\139\65")):LoadAnimation(v73.Attack):Play();end if v73:FindFirstChild(v7("\223\191\81\65\121","\191\157\211\48\37\28")) then local v144=0 -0 ;local v145;local v146;local v147;while true do if (v144==(1 -0)) then v147=math.random(1 + 0 ,144 -44 );if (v147<=HIT_FAIL_PROBABILITY) then if (v145 and v145:IsA(v7("\177\34\176\68\216","\113\226\77\197\42\188\32"))) then v145:Play();end return;else if (v145 and v145:IsA(v7("\9\25\225\187\62","\213\90\118\148"))) then v145:Play();end wait(806.19 -(118 + 688) );if (v146 and v146:IsA(v7("\104\33\161\88\73","\45\59\78\212\54"))) then v146:Play();v73.DamageRemote:FireServer(v18.Character:FindFirstChildOfClass(v7("\56\67\142\138\136\33\164\244","\144\112\54\227\235\230\78\205")));end end break;end if (v144==(48 -(25 + 23))) then local v150=0 -0 ;while true do if (v150==(1 + 0)) then v144=1 + 0 ;break;end if (v150==(0 + 0)) then v145=v73.Blade:FindFirstChild(v7("\236\8\253\18\61\236\16\225\18\62","\90\191\127\148\124"));v146=v73.Blade:FindFirstChild(v7("\80\142\58\36\119\146\32\19","\119\24\231\78"));v150=1;end end end end end break;end end end end break;end if (v115==(1886 -(927 + 959))) then v66=true;v116=(v9.Character.HumanoidRootPart.Position-v18.Character.HumanoidRootPart.Position).Magnitude;v115=3 -2 ;end end end end end if  not v65 then if cooldown then return;end local v78=false;local v79=false;for v96,v97 in next,v9.Character:GetDescendants() do if (v97:IsA(v7("\135\39\0\240","\59\211\72\111\156\176")) and (v97.Name==v7("\101\134\244\44\71\142\163\31\75\145\236\33\88\130\241","\77\46\231\131"))) then v78=true;break;end end for v98,v99 in next,v9.Character:GetDescendants() do if (v99:IsA(v7("\142\91\185\76","\32\218\52\214")) and v99:FindFirstChild(v7("\106\22\60\169\246\181\119\95\67\24\37\173","\58\46\119\81\200\145\208\37")) and v99:FindFirstChild(v7("\8\131\63\160\173\178\33\37","\86\75\236\80\204\201\221")) and v18 and v18.Character and v18.Character:FindFirstChildOfClass(v7("\90\84\122\132\240\132\123\69","\235\18\33\23\229\158"))) then v79=true;v79=true;break;end end local v80=v9.Character:FindFirstChildOfClass(v7("\120\175\204\186\94\181\200\191","\219\48\218\161"));if ( not v80 or (v80.Health<=(732 -(16 + 716)))) then return;end if ( not v78 and  not v79) then for v106,v107 in next,v9.Character:GetChildren() do if (v107:IsA(v7("\208\126\115\69","\128\132\17\28\41\187\47")) and (v107.Name~=v7("\42\51\17\59\84\8\114\52\63\75\14\62\16\63\79","\61\97\82\102\90"))) then v107.Parent=v9.Backpack;end end for v108,v109 in next,v9.Backpack:GetChildren() do if (v109:IsA(v7("\152\33\164\71","\105\204\78\203\43\167\55\126")) and (v109.Name~=v7("\142\171\52\31\26\13\135\99\160\188\44\18\5\1\213","\49\197\202\67\126\115\100\167")) and  not v109:FindFirstChild(v7("\20\87\214\44\142\66\125\19","\62\87\59\191\73\224\54")) and v109:FindFirstChild(v7("\195\3\247\200\224\7\200\204\234\13\238\204","\169\135\98\154")) and v109:FindFirstChild(v7("\232\120\43\88\249\60\223\197","\168\171\23\68\52\157\83")) and v18 and v18.Character and v18.Character:FindFirstChildOfClass(v7("\220\100\248\172\43\34\142\240","\231\148\17\149\205\69\77"))) then v79=true;v109.Parent=v9.Character;v79=true;local v121=(v9.Character.HumanoidRootPart.Position-v18.Character.HumanoidRootPart.Position).Magnitude;if (v121<=MAX_SWORD_DISTANCE) then v16(v109,v109.Cooldown.Value);if (v18 and v9.Character and v9.Character:FindFirstChild(v7("\168\178\202\250\89\240\137\163\245\244\88\235\176\166\213\239","\159\224\199\167\155\55")) and v18.Character:FindFirstChild(v7("\223\230\49\211\249\252\53\214\197\252\51\198\199\242\46\198","\178\151\147\92"))) then local v131=0 + 0 ;while true do if ((0 -0)==v131) then if (v109:FindFirstChild(v7("\173\233\88\51\17\71","\26\236\157\44\82\114\44")) and v9.Character:FindFirstChildOfClass(v7("\2\59\216\90\36\33\220\95","\59\74\78\181"))) then v9.Character:FindFirstChildOfClass(v7("\13\196\87\91\189\42\216\94","\211\69\177\58\58")):LoadAnimation(v109.Attack):Play();end if v109:FindFirstChild(v7("\149\233\120\241\236","\171\215\133\25\149\137")) then local v140=97 -(11 + 86) ;local v141;local v142;local v143;while true do if (v140==(2 -1)) then v143=math.random(1 + 0 ,385 -(175 + 110) );if (v143<=HIT_FAIL_PROBABILITY) then local v148=1433 -(797 + 636) ;local v149;while true do if (v148==(0 -0)) then v149=0 -0 ;while true do if (v149==(1796 -(503 + 1293))) then if (v141 and v141:IsA(v7("\242\77\39\216\1","\101\161\34\82\182"))) then v141:Play();end return;end end break;end end else if (v141 and v141:IsA(v7("\219\2\76\240\223","\78\136\109\57\158\187\130\226"))) then v141:Play();end wait(0.19 -0 );if (v142 and v142:IsA(v7("\13\48\236\255\58","\145\94\95\153"))) then local v151=0 + 0 ;while true do if (v151==(0 + 0)) then v142:Play();v109.DamageRemote:FireServer(v18.Character:FindFirstChildOfClass(v7("\213\216\25\212\64\184\244\201","\215\157\173\116\181\46")));break;end end end end break;end if (v140==(0 + 0)) then v141=v109.Blade:FindFirstChild(v7("\210\223\59\244\232\3\243\87\239\204","\34\129\168\82\154\143\80\156"));v142=v109.Blade:FindFirstChild(v7("\173\187\39\56\71\91\135\129","\233\229\210\83\107\40\46"));v140=1062 -(810 + 251) ;end end end break;end end end end break;end end end end end end);
+local plrs = game:GetService'Players'
+local plr = plrs.LocalPlayer
+local mouse = plr:GetMouse()
+local rep = game:GetService'ReplicatedStorage'
+local uis = game:GetService'UserInputService'
+local ts = game:GetService'TweenService'
+local rs = game:GetService'RunService'.RenderStepped
+
+local function findplr(Target)
+    local name = Target
+    local found = false
+    for _,v in pairs(game.Players:GetPlayers()) do 
+        if not found and (v.Name:lower():sub(1,#name) == name:lower() or v.DisplayName:lower():sub(1,#name) == name:lower()) then
+            name = v
+            found = true
+        end
+    end
+    if name ~= nil and name ~= Target then
+        return name
+    end
+end
+
+local function AddCd(tool, Cd)
+    local cd = Instance.new('IntValue', tool)
+    cd.Name = 'ClientCD'
+    game.Debris:AddItem(cd, Cd)
+end
+
+-- Función para disparar con posibilidad de fallo
+local function Shoot(firstPos, nextPos, Revolver, tar)
+    if Revolver:FindFirstChild'Barrel' and Revolver.Barrel:FindFirstChild'Attachment' then
+        if Revolver.Barrel.Attachment:FindFirstChild'Sound' then
+            local SoundClone = Revolver.Barrel.Attachment.Sound:Clone()
+            SoundClone.Name = 'Uncopy'
+            SoundClone.Parent = Revolver.Barrel.Attachment
+            SoundClone:Play()
+            game.Debris:AddItem(SoundClone, 1)
+        end
+
+local failChance = math.random(1, 100)
+if failChance <= FAIL_PROBABILITY then  -- Usamos FAIL_PROBABILITY para determinar si falla
+    local randomOffset = Vector3.new(
+        math.random(-RANDOM_OFFSET_RANGE, RANDOM_OFFSET_RANGE), -- Desplazamiento en X
+        math.random(-RANDOM_OFFSET_RANGE, RANDOM_OFFSET_RANGE), -- Desplazamiento en Y
+        math.random(-RANDOM_OFFSET_RANGE, RANDOM_OFFSET_RANGE)  -- Desplazamiento en Z
+    )
+    nextPos = nextPos + randomOffset
+end
+
+        local FilterTable = {}
+        table.insert(FilterTable, plr.Character)
+        table.insert(FilterTable, game.Workspace['Target Filter'])
+        for _, v in pairs(game.Workspace:GetDescendants()) do
+            if v.ClassName == 'Accessory' then
+                table.insert(FilterTable, v)
+            end
+        end
+        local a_1, a_2 = game.Workspace:FindPartOnRayWithIgnoreList(Ray.new(firstPos, (nextPos - firstPos).Unit * 100), FilterTable)
+        local BulletCl = rep['Revolver Bullet']:Clone()
+        game.Debris:AddItem(BulletCl, 1)
+        BulletCl.Parent = game.Workspace['Target Filter']
+        local mg = (firstPos - a_2).Magnitude
+        BulletCl.Size = Vector3.new(0.2, 0.2, mg)
+        BulletCl.CFrame = CFrame.new(firstPos, nextPos) * CFrame.new(0, 0, -mg / 2)
+        ts:Create(BulletCl, TweenInfo.new(0.3, Enum.EasingStyle.Linear, Enum.EasingDirection.Out), {
+            Size = Vector3.new(0.05, 0.05, mg), 
+            Transparency = 1
+        }):Play()
+
+        if a_1 then
+            local expPart = Instance.new'Part'
+            game.Debris:AddItem(expPart, 2)
+            expPart.Name = 'Exploding Neon Part'
+            expPart.Anchored = true
+            expPart.CanCollide = false
+            expPart.Shape = 'Ball'
+            expPart.Material = Enum.Material.Neon
+            expPart.BrickColor = BulletCl.BrickColor
+            expPart.Size = Vector3.new(0.1, 0.1, 0.1)
+            expPart.Parent = game.Workspace['Target Filter']
+            expPart.Position = a_2
+            ts:Create(expPart, TweenInfo.new(0.2, Enum.EasingStyle.Linear, Enum.EasingDirection.Out), {
+                Size = Vector3.new(2, 2, 2), 
+                Transparency = 1
+            }):Play()
+            
+            if Revolver:FindFirstChild'DamageRemote' and a_1.Parent:FindFirstChild'Humanoid' then
+                Revolver.DamageRemote:FireServer(a_1.Parent.Humanoid)
+            end
+        end
+    end
+end
+
+local tar
+local lastPos = nil
+local lastTime = nil
+
+local function isTargetMovingFast()
+    if tar and tar.Character and tar.Character:FindFirstChild("HumanoidRootPart") then
+        local currentPos = tar.Character.HumanoidRootPart.Position
+        local currentTime = tick()
+
+        if lastPos then
+            local distanceMoved = (currentPos - lastPos).Magnitude
+            local timeElapsed = currentTime - lastTime
+            local speed = distanceMoved / timeElapsed
+
+            -- Si la velocidad es mayor que 19 studs por segundo, el objetivo se mueve rápido
+            if speed > 19 then
+                return true
+            end
+        end
+
+        lastPos = currentPos
+        lastTime = currentTime
+    end
+    return false
+end
+local plr = game.Players.LocalPlayer
+local UserInputService = game:GetService("UserInputService")
+local mouse = plr:GetMouse()
+
+plr:GetMouse().KeyDown:Connect(function(key)
+    if key == 'r' then
+        tar = nil
+        for _, v in next, workspace:GetDescendants() do
+            if v.Name == 'SelectedPlayer' then
+                v:Destroy()
+            end
+        end       
+        local n_plr, dist
+        local mousePos = mouse.Hit.Position
+        for _, v in pairs(game.Players:GetPlayers()) do
+            if v ~= plr and v.Character and v.Character:FindFirstChild("HumanoidRootPart") then
+                local distance = (mousePos - v.Character.HumanoidRootPart.Position).Magnitude
+                if (not dist or distance <= dist) and v.Character:FindFirstChildOfClass("Humanoid") and v.Character:FindFirstChildOfClass("Humanoid").Health > 0 then
+                    dist = distance
+                    n_plr = v
+                end
+            end
+        end
+        tar = n_plr
+            game:GetService("StarterGui"):SetCore("SendNotification", {
+                Title = "Jugador Seleccionado",
+                Text = tar.DisplayName,
+                Duration = 0.3
+            })
+
+local cooldown = false
+elseif key == 'q' and tar and plr.Character then
+    if cooldown then return end 
+
+    local hasRevolver = false
+    local hasSword = false
+
+    for _, v in next, plr.Character:GetDescendants() do
+        if v:IsA('Tool') then
+            if v.Name == 'Kawaii Revolver' and not v:FindFirstChild('ClientCD') and v:FindFirstChild('ReplicateRemote') and v:FindFirstChild('Barrel') and v.Barrel:FindFirstChild('Attachment') and tar and tar.Character and tar.Character:FindFirstChild('HumanoidRootPart') then
+                hasRevolver = true
+                local humanoid = plr.Character:FindFirstChildOfClass('Humanoid')
+                if humanoid and humanoid.Health > 0 then
+                    v.Parent = plr.Character
+                    AddCd(v, 0.9) 
+                    rs:wait()
+
+                    local targetMovingFast = isTargetMovingFast()
+                    if targetMovingFast then
+                        local randomOffset = Vector3.new(math.random(-3, 3), math.random(-1, 1), math.random(-1, 1))
+                        local randomPosition = tar.Character.HumanoidRootPart.Position + randomOffset
+                        Shoot(v.Barrel.Attachment.WorldPosition, randomPosition, v)
+                        v.ReplicateRemote:FireServer(randomPosition)
+                    else
+                        Shoot(v.Barrel.Attachment.WorldPosition, tar.Character.Torso.Position, v)
+                        v.ReplicateRemote:FireServer(tar.Character.HumanoidRootPart.Position)
+                         plr.Character:FindFirstChildOfClass('Humanoid'):LoadAnimation(v.Fire):Play()
+                    end
+                end
+              elseif v:IsA'Tool' and v.Name ~= 'Kawaii Revolver' and not v:FindFirstChild'ClientCD' and v:FindFirstChild'DamageRemote' and v:FindFirstChild'Cooldown' and tar and tar.Character and tar.Character:FindFirstChildOfClass'Humanoid' then                hasSword = true
+                local distance = (plr.Character.HumanoidRootPart.Position - tar.Character.HumanoidRootPart.Position).Magnitude
+                if distance <= MAX_SWORD_DISTANCE then
+                    AddCd(v, v.Cooldown.Value)
+                    if tar and plr.Character and plr.Character:FindFirstChild('HumanoidRootPart') and tar.Character:FindFirstChild('HumanoidRootPart') then
+                        if v:FindFirstChild('Attack') and plr.Character:FindFirstChildOfClass('Humanoid') then
+                            plr.Character:FindFirstChildOfClass('Humanoid'):LoadAnimation(v.Attack):Play()
+                        end
+                        if v:FindFirstChild('Blade') then
+                            local swingSound = v.Blade:FindFirstChild('SwingSound')
+                            local hitSound = v.Blade:FindFirstChild('HitSound')
+                            local failChance = math.random(1, 100)
+                            if failChance <= HIT_FAIL_PROBABILITY then
+                                if swingSound and swingSound:IsA('Sound') then
+                                    swingSound:Play()
+                                end
+                                return
+                            else
+                                if swingSound and swingSound:IsA('Sound') then
+                                    swingSound:Play()
+                                end
+                                wait(0.190)
+                                if hitSound and hitSound:IsA('Sound') then
+                                    hitSound:Play()
+                                    v.DamageRemote:FireServer(tar.Character:FindFirstChildOfClass('Humanoid'))
+                                end
+                            end
+                        end
+                    end
+                end
+            end
+        end
+    end
+    if not hasRevolver then
+    if cooldown then return end
+
+    local hasRevolver = false
+    local hasSword = false
+    for _, v in next, plr.Character:GetDescendants() do
+        if v:IsA('Tool') and v.Name == 'Kawaii Revolver' then
+            hasRevolver = true
+            break
+        end
+    end
+    for _, v in next, plr.Character:GetDescendants() do
+            if v:IsA'Tool' and v:FindFirstChild'DamageRemote' and v:FindFirstChild'Cooldown' and tar and tar.Character and tar.Character:FindFirstChildOfClass'Humanoid' then                hasSword = true
+            hasSword = true
+            break
+        end
+    end
+
+    local humanoid = plr.Character:FindFirstChildOfClass('Humanoid')
+    if not humanoid or humanoid.Health <= 0 then
+        return 
+    end
+    if not hasRevolver and not hasSword then
+        for _, tool in next, plr.Character:GetChildren() do
+            if tool:IsA('Tool') and tool.Name ~= 'Kawaii Revolver' then
+                tool.Parent = plr.Backpack
+            end
+        end
+        
+
+        for _, v in next, plr.Backpack:GetChildren() do
+            if v:IsA'Tool' and v.Name ~= 'Kawaii Revolver' and not v:FindFirstChild'ClientCD' and v:FindFirstChild'DamageRemote' and v:FindFirstChild'Cooldown' and tar and tar.Character and tar.Character:FindFirstChildOfClass'Humanoid' then                
+                hasSword = true
+                v.Parent = plr.Character
+                hasSword = true
+                local distance = (plr.Character.HumanoidRootPart.Position - tar.Character.HumanoidRootPart.Position).Magnitude
+                if distance <= MAX_SWORD_DISTANCE then
+                    AddCd(v, v.Cooldown.Value)
+                    if tar and plr.Character and plr.Character:FindFirstChild('HumanoidRootPart') and tar.Character:FindFirstChild('HumanoidRootPart') then
+                        if v:FindFirstChild('Attack') and plr.Character:FindFirstChildOfClass('Humanoid') then
+                            plr.Character:FindFirstChildOfClass('Humanoid'):LoadAnimation(v.Attack):Play()
+                        end
+                        if v:FindFirstChild('Blade') then
+                            local swingSound = v.Blade:FindFirstChild('SwingSound')
+                            local hitSound = v.Blade:FindFirstChild('HitSound')
+                            local failChance = math.random(1, 100)
+                            if failChance <= HIT_FAIL_PROBABILITY then
+                                if swingSound and swingSound:IsA('Sound') then
+                                    swingSound:Play()
+                                end
+                                return
+                            else
+                                if swingSound and swingSound:IsA('Sound') then
+                                    swingSound:Play()
+                                end
+                                wait(0.190)
+                                if hitSound and hitSound:IsA('Sound') then
+                                    hitSound:Play()
+                                    v.DamageRemote:FireServer(tar.Character:FindFirstChildOfClass('Humanoid'))
+                                            end
+                                        end
+                                    end
+                                end
+                            end
+                        break
+                    end
+                end
+            end
+        end
+    end
+end)
