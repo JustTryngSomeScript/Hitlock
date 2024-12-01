@@ -1,13 +1,13 @@
-
 local Players = game:GetService("Players")
 local UIS = game:GetService("UserInputService")
 local TweenService = game:GetService("TweenService")
 local player = Players.LocalPlayer
-local DashSpeed = SPEED
+local DashSpeed = 150
 local DashLength = 0.2
 local Cooldown = 0
 local IsOn = nil
 local TrashTable = {}
+
 local function deselectCurrentTool()
     local character = player.Character
     if character and character:FindFirstChildOfClass("Tool") then
@@ -25,6 +25,7 @@ local function equipGrenade2()
         grenadeTool.Parent = player.Character
         return true
     end
+
     return false
 end
 local function executeDash()
@@ -54,7 +55,7 @@ local function executeDash()
 end
 UIS.InputBegan:Connect(function(input, isTyping)
     if isTyping then return end
-    if input.KeyCode == keybind then  
+    if input.KeyCode == Enum.KeyCode.V then -- Cambiar 'V' por cualquier tecla que desees
         executeDash()
     end
 end)
